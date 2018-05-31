@@ -17,6 +17,15 @@ def create_item():
     details.append(detail)
     return jsonify(message = 'Request added'), 200 
 
+@app.route('/api/v1/request', methods=['PUT'])
+def update_item():
+    detail= request.get_json()
+    name = request.json.get('name', details[0]['name'])
+    value = request.json.get('value', details[0]['value'])
+    item[0]['name'] = name
+    item[0]['value'] = value
+    return jsonify({'details': item[0]}), 200
+
     
 
 if __name__=="__main__":
