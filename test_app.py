@@ -2,7 +2,6 @@ import unittest
 import flask, json
 from app import app
 
-# class Mytest(unittest.TestCase):
 class MyApi(unittest.TestCase):
     def setUp(self):
         self.tester = app.test_client(self)
