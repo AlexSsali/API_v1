@@ -26,6 +26,16 @@ def update_item():
     item[0]['value'] = value
     return jsonify({'details': item[0]}), 200
 
+@app.route('/api/v1/request/<string:name>', methods=['PUT'])
+def update_item(name):
+    #assign all data to detail
+    detail= request.get_json()
+    #validate
+    #if
+    #work on data
+    detail=[detail for detail in details if detail['name']==name]
+    detail[0]['name']=request.json['name']
+    return jsonify({'details': detail[0]}), 200
     
 
 if __name__=="__main__":
