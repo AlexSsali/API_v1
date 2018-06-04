@@ -1,13 +1,17 @@
 language: python
+sudo: required
 python:
-  -"3.6"
+  - "3.6"
 
 install:
-  -pip install -r requirements.txt
+  - pip install -r requirements.txt
+  - pip install coverage
+  - pip install coveralls
+  - pip install pytest-cov
 
 script:
-  - pytest tests/test_app.py
-  - pytest --with-coverage
+  - pytest --cov .
 
 after_success:
   - coveralls
+  - coverage report
