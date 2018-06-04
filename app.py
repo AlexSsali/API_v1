@@ -16,13 +16,14 @@ def user_detail(id):
     detail=[detail for detail in details if detail['id'] == id]
     return jsonify ({'details': detail[0]}), 200
 
-@app.route('/api/v1/request', methods=['POST'])
+#create request
+@app.route('/api/v1/request/create', methods=['POST'])
 def create_item():
     detail = request.get_json()  
     details.append(detail)
     return jsonify(message = 'Request added'), 201
 
-
+#update 
 @app.route('/api/v1/request/update/<string:name>', methods=['PUT'])
 def update_item(name):
     #assign all data to detail
@@ -33,6 +34,7 @@ def update_item(name):
     detail=[detail for detail in details if detail['name']==name]
     detail[0]['name']=request.json['name']
     return jsonify({'details': detail[0]}), 200
+    return jsonify(message = 'name updated')
     
 
 if __name__=="__main__":
