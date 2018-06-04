@@ -8,19 +8,19 @@ details=[{'id':1,'name':'Alex','dop':'17/06/18','top':'13:00','item requested fo
 #get all requests for all users
 @app.route('/api/v1/request/', methods=['GET'])
 def _get_details():
-    return jsonify(details)
+    return jsonify(details), 200
 
 #get all requests for one user
 @app.route('/api/v1/request/<int:id>', methods=['GET'])
 def user_detail(id):
     detail=[detail for detail in details if detail['id'] == id]
-    return jsonify ({'details': detail[0]})
+    return jsonify ({'details': detail[0]}), 200
 
 @app.route('/api/v1/request', methods=['POST'])
 def create_item():
     detail = request.get_json()  
     details.append(detail)
-    return jsonify(message = 'Request added'), 200 
+    return jsonify(message = 'Request added'), 201
 
 
 @app.route('/api/v1/request/update/<string:name>', methods=['PUT'])
