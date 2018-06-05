@@ -23,7 +23,9 @@ class MyApi(unittest.TestCase):
                                 content_type="application/json",
         data=json.dumps(self.dummy))
         responsejson = json.loads(response.data.decode())
-        self.assertEqual("Alex", responsejson['details']["name"])
+        print(responsejson)
+        print(responsejson["name"])
+        self.assertEqual("PITT", responsejson["name"])
         self.assertEqual(response.status_code,200)
 
     
@@ -32,7 +34,7 @@ class MyApi(unittest.TestCase):
                                 content_type="application/json",
         data=json.dumps({"name": "Juliuss"}))
         responsejson = json.loads(response.data.decode())
-        self.assertEqual("Juliuss", responsejson['details']["name"])
+        self.assertEqual("Juliuss", responsejson["details"])
         self.assertEqual(response.status_code,200)
 
     def test_for_create_request(self):
@@ -44,8 +46,8 @@ class MyApi(unittest.TestCase):
         "name": "Joe",
         "top": "13:30"}))
         responsejson = json.loads(response.data.decode())
-        self.assertEqual(response.status_code,200)
-        self.assertEqual(responsejson['message'],"Request added")
+        self.assertEqual(response.status_code,201)
+        self.assertEqual("Request added",responsejson["message"])
 
 
 

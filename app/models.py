@@ -8,7 +8,7 @@ class User_request():
     def create_request(self, id, name, dop, top, item_requested_for):
         new_request={'id':id,'name':name,'dop':dop,'top':top,'item requested for':item_requested_for}
         self.details.append(new_request)
-        return 'request added'
+        return 'Request added'
         
 
     def get_requests(self):
@@ -18,12 +18,13 @@ class User_request():
         for detail in self.details:
             if detail['id'] == id:
                 return detail
-            else:
-                return 'request does not exist' 
+        else:
+            return 'request does not exist' 
 
     def update_request(self, name, new_name):
        for detail in self.details:
             if detail['name'] == name:
+                detail['name'] = new_name
                 return detail
  
  

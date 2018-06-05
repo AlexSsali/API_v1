@@ -22,16 +22,14 @@ def user_detail(id):
 def create_item():
     create = request.get_json()
     create = user_request.create_request(create['id'],create['name'],create['dop'],create['top'],create['item requested for'])
-    return jsonify(create)
-    return jsonify(message = 'Request added'), 201
+    return jsonify({'message':create}),201
 
 #update 
 @app.route('/api/v1/request/update/<string:name>', methods=['PUT'])
 def update_item(name):
     modify = request.get_json()
-    modified = user_request.update_request(modify['name'])
-    return jsonify({'details': modified}), 200
-    return jsonify(message = 'name updated')
+    modified = user_request.update_request(name ,modify['name'])
+    return jsonify({'details': modify['name']}), 200
     
 
 
