@@ -1,6 +1,0 @@
-[
-  "tests/test_run.py::MyApi::test_for_create_request",
-  "tests/test_run.py::MyApi::test_for_update",
-  "tests/test_run.py::MyApi::test_get_request",
-  "tests/test_run.py::MyApi::test_get_request_for_one_user"
-]
