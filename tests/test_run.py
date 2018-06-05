@@ -1,6 +1,6 @@
 import unittest
 import flask, json
-from app import app
+from run import app
 
 class MyApi(unittest.TestCase):
     def setUp(self):
@@ -44,9 +44,8 @@ class MyApi(unittest.TestCase):
         "name": "Joe",
         "top": "13:30"}))
         responsejson = json.loads(response.data.decode())
-        self.assertEqual(response.status_code,201)
+        self.assertEqual(response.status_code,200)
         self.assertEqual(responsejson['message'],"Request added")
 
 
-if __name__ == "__main__":
-    unittest.main()
+

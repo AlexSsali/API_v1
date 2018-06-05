@@ -1,1 +1,9 @@
-{}
+{
+  "tests/test_app2.py::MyApi::test_for_create_request": true,
+  "tests/test_app2.py::MyApi::test_for_update": true,
+  "tests/test_app2.py::MyApi::test_get_request": true,
+  "tests/test_app2.py::MyApi::test_get_request_for_one_user": true,
+  "tests/test_run.py::MyApi::test_for_create_request": true,
+  "tests/test_run.py::MyApi::test_for_update": true,
+  "tests/test_run.py::MyApi::test_get_request_for_one_user": true
+}
