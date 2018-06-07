@@ -21,15 +21,20 @@ def user_detail(id):
 @app.route('/api/v1/request/create', methods=['POST'])
 def create_item():
     create = request.get_json()
+    if create['id']=="" or create['name']=="" or create['dop']=="" or create['top']=="" or create['item requested for']=="":
+        return jsonify({'message':'All fields are to be filled', 'status':'failed'}),400
     create = user_request.create_request(create['id'],create['name'],create['dop'],create['top'],create['item requested for'])
-    return jsonify({'status':'created',  'message':'Request placed'}),201
+    return jsonify({'status':'ok',  'message':'Request placed successfully'}),201
 
 #update 
 @app.route('/api/v1/request/update/<string:name>', methods=['PUT'])
 def update_item(name):
     modify = request.get_json()
-    modified = user_request.update_request(name ,modify['name'])
-    return jsonify({'details': modify['name']}), 200
+    if modify['name']=="":
+        return jsonify({'status':'failed',  'message': 'Enter a valid name'}),400
+    else:
+        modified = user_request.update_request(name ,modify['name'])
+        return jsonify({'details': modify['name']}), 200
     
 
 

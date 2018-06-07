@@ -8,9 +8,8 @@ class User_request():
     def create_request(self, id, name, dop, top, item_requested_for):
         new_request={'id':id,'name':name,'dop':dop,'top':top,'item requested for':item_requested_for}
         if new_request['id']=="" or new_request['name']=="" or new_request['dop']=="" or new_request['top']=="" or new_request['item requested for']=="":
-            return {'message':'All fields are to be filled'}
-        self.details.append(new_request)
-        return 'Request added'
+            self.details.append(new_request)
+        
         
 
     def get_requests(self):
@@ -26,6 +25,7 @@ class User_request():
 
     def update_request(self, name, new_name):
        for detail in self.details:
+                      
             if detail['name'] == name:
                 detail['name'] = new_name
                 return detail
