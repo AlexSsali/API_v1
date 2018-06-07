@@ -47,7 +47,7 @@ class MyApi(unittest.TestCase):
         "top": "13:30"}))
         responsejson = json.loads(response.data.decode())
         self.assertEqual(response.status_code,201)
-        self.assertEqual("Request added",responsejson["message"])
+        self.assertEqual("Request placed successfully",responsejson["message"])
 
 
 
