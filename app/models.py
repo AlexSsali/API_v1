@@ -7,11 +7,14 @@ class User_request():
         
     def create_request(self, id, name, dop, top, item_requested_for):
         new_request={'id':id,'name':name,'dop':dop,'top':top,'item requested for':item_requested_for}
+        if new_request['id']=="" or new_request['name']=="" or new_request['dop']=="" or new_request['top']=="" or new_request['item requested for']=="":
+            return {'message':'All fields are to be filled'}
         self.details.append(new_request)
         return 'Request added'
         
 
     def get_requests(self):
+
         return self.details
 
     def get_request_for_one_user(self, id):
@@ -19,7 +22,7 @@ class User_request():
             if detail['id'] == id:
                 return detail
         else:
-            return 'request does not exist' 
+            return ('request for id %s does not exist') %id
 
     def update_request(self, name, new_name):
        for detail in self.details:
