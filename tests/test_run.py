@@ -49,5 +49,26 @@ class MyApi(unittest.TestCase):
         self.assertEqual(response.status_code,201)
         self.assertEqual("Request placed successfully",responsejson["message"])
 
+    def test_create_request_whiteSpace(self):
+        response = self.tester.post("/api/v1/request/create",content_type="application/json",
+        data = json.dumps({
+        "dop": "14/03/18",
+        "id": 6,
+        "item requested for": "",
+        "name": "John",
+        "top": "15:30"}))
+        responsejson = json.loads(response.data.decode())
+        self.assertEqual(response.status_code,400)
+
+    def test_update_not_empty(self):
+        response = self.tester.put("/api/v1/request/update/Peter", content_type="application/json",
+        data=json.dumps({"name": ""}))
+        responsejson = json.loads(response.data.decode())
+        self.assertEqual(response.status_code,400)
+        
+
+    
+
+
 
 
